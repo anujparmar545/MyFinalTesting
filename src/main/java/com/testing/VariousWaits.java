@@ -74,5 +74,25 @@ WebDriver driver;
 		 *
 		 */
 		
+		//Added Fluent Wait to this class
+
+				Wait wait = new FluentWait(driver).withTimeout(10, TimeUnit.SECONDS).pollingEvery(10, TimeUnit.SECONDS)
+						.ignoring(NoSuchElementException.class);
+
+				WebElement foo = (WebElement) wait.until(new Function() {
+
+					public WebElement apply(WebDriver driver) {
+
+						return driver.findElement(By.xpath("(//button[@type='submit'])[2]"));
+
+					}
+
+					public Object apply(Object t) {
+						// TODO Auto-generated method stub
+						return null;
+					}
+
+				});
+		
 	}
 }

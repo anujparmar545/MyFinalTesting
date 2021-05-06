@@ -37,6 +37,14 @@ WebDriver driver;
 		public void browser() {
 			String path = System.getProperty("user.dir");
 			String genericPath = path + "\\drivers\\chromedriver.exe";
+			/**Above code can be replaced as Following
+			 * 
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+			 
+			It will download exe runtime so no need to keep executable in project
+			
+			**/
 			System.setProperty("webdriver.chrome.driver", genericPath);
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
